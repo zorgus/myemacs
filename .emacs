@@ -1,5 +1,77 @@
-;; Hide toolbar
-(tool-bar-mode 0)
+;;; .emacs 설정 파일 만들기 프로젝트
+;; 1. 유용한 emacs 옵션을 찾아라!!
+;; 2. 각 mode별 설정
+;; 3. 유용한 plugin을 패키지화 하자
+;; 4. 메모의 생활화
+;; 5. elisp에 익숙해 지자
+;; 6. 머하는 놈인지 알고 쓰자
+
+(require 'cl)
+
+
+;;; 여러 환경에서 쓰기 위한 설정값들
+
+(defconst win32p  (eq system-type 'windows-nt) "윈도머신이면 참")
+(defconst unixp   (eq system-type (or 'gnu/linux 'berkeley-unix)) "FreeBSD 머신이면 참")
+(defconst homep   (string-match "MOONFIRE" system-name)"집의 pc 라면 참")
+(defconst officep (not homep)"사무실의 pc 라면 참")
+(defconst extra-packages "~/.emacs.d" "내가 추가로 설치한 el 패키지들의 위치")
+
+;environment setting
+(setenv "PATH" (concat "/opt/android-toolchain/arm-eabi-4.2.1/bin:" (getenv "PATH")))
+(setenv "PATH" (concat "/opt/local/bin:" (getenv "PATH")))
+(setenv "CROSS_COMPILE" "arm-eabi-")
+(setenv "ARCH" "arm")
+
+
+(global-font-lock-mode 1)               ; syntanx highlight
+(transient-mark-mode t)                 ; marking highlight
+(show-paren-mode t)                     ; 짝이 맞는 괄호 보여준다
+(if (functionp 'global-hi-lock-mode) ; C-x w h 등으로 특정 단어들을 빛내준다
+    (global-hi-lock-mode 1)
+  (hi-lock-mode 1))
+;;(global-hl-line-mode 1)                 ; 현재줄을 빛내준다. 이거 좀 불편해서 뺐다.
+(setq ring-bell-function (lambda () nil)) ; bell 무시
+
+(line-number-mode 1)                  ; mode line 에 라인수를 표시한다
+(column-number-mode 1) ; mode line 에 컬럼을 표시한다(기본이 아니더라)
+
+(setq scroll-step 1)                    ; 윈도스런 스크롤을 위해서..
+(setq scroll-conservatively 4096)
+
+                                        
+(delete-selection-mode 1)		; 윈도우처럼, 선택된 regeion 을 DEL 로 지우거나, 다른 글자를 타이핑 할때 즉시 지운다.
+
+(setq-default truncate-lines t) ; 화면을 벗어나는 긴 줄처리 toggle-truncate-lines 참고
+
+;;(dynamic-completion-mode)               ; 음 이게 뭐드라? M-/ 던가 M-RET 던가
+
+;; Set the text for titlebar and icons, %f=filename, %b=buffername
+(setq frame-title-format (list "GNU Emacs " emacs-version " - " '(buffer-file-name "%f" "%b")))
+(setq icon-title-format frame-title-format)
+
+(which-function-mode 1)	   ; 함수 표시
+
+(tool-bar-mode -1)	   ; 툴바 안쓰니까 제거
+
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1)) ; 스크롤바 거의 안쓴다.
+
+;; iswitch mode
+(iswitchb-mode t)
+
+;disable backup
+(setq backup-inhibited t)
+;disable auto save
+(setq auto-save-default nil)
+
+
+;;; 유용한 플러그인을 사용하자
+
+;; setting library load path
+(add-to-list 'load-path "~/.emacs.d/")
+
+;;; magit mode
+(require 'magit)
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
@@ -14,14 +86,15 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(default ((t (:stipple nil :background "white" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "apple" :family "Andale_Mono")))))
-;; cycle through buffers with Ctrl-Tab (like Firefox)
+
+;; Control-tab으로 버퍼 이동하기
 (global-set-key (kbd "<C-tab>") 'bury-buffer)
 
 ;; android mode
 (load-file "/Developer/Android/android-sdk-mac_x86-1.5_r1/tools/lib/android.el")
 
-;; iswitch mode
-(iswitchb-mode t)
+
+
 
 ;; 한글
 ;(require 'cl)
@@ -53,16 +126,6 @@
 ;(set-fontset-font "fontset-default" '(#x1100 . #xffdc)  '("AppleGothic" . "unicode-bmp")) ;;; 유니코드 한글영역...Malgun Gothic에다가 원하는폰트를 적는다
 ;(set-fontset-font "fontset-default" '(#xe0bc . #xf66e)  '("AppleGothic" . "unicode-bmp")) ;;;유니코드 사용자 영역
 
-;disable backup
-(setq backup-inhibited t)
-;disable auto save
-(setq auto-save-default nil)
-
-(setenv "PATH" (concat "/opt/android-toolchain/arm-eabi-4.2.1/bin:" (getenv "PATH")))
-(setenv "PATH" (concat "/opt/local/bin:" (getenv "PATH")))
-(setenv "CROSS_COMPILE" "arm-eabi-")
-(setenv "ARCH" "arm")
-
 ;; color theme 설정
 (add-to-list 'load-path "~/.emacs.d/utils/color-theme-6.6.0/")
 ;(require 'color-theme)
@@ -70,7 +133,6 @@
 ;(color-theme-blue-sea)
 
 ;; twitter mode
-(add-to-list 'load-path "~/.emacs.d/")
 ;(require 'auto-install)
 ;(setq auto-install-directory "~/.emacs.d/auto-install/")
 (autoload 'twitter-get-friends-timeline "twitter" nil t)
@@ -81,6 +143,7 @@
 (require 'yasnippet-bundle)
 ;;short for eshell
 (global-set-key (kbd "M-0") 'eshell)
+;setting for MAC
 (setq mac-option-modifier 'hyper)
 (setq mac-command-modifier 'meta)
 
