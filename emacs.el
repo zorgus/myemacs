@@ -64,40 +64,10 @@
 ;disable auto save
 (setq auto-save-default nil)
 
-
-;;; 유용한 플러그인을 사용하자
-
-;; setting library load path
-(add-to-list 'load-path "~/.emacs.d/")
-
-;;; magit mode
-(require 'magit)
-
-(custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(current-language-environment "Korean")
-)
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- '(default ((t (:stipple nil :background "white" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "apple" :family "Andale_Mono")))))
-
-;; Control-tab으로 버퍼 이동하기
-(global-set-key (kbd "<C-tab>") 'bury-buffer)
-
-;; android mode
-(load-file "/Developer/Android/android-sdk-mac_x86-1.5_r1/tools/lib/android.el")
-
-
-
+;;short for eshell
+(global-set-key (kbd "M-0") 'eshell)
 
 ;; 한글
-;(require 'cl)
 ;(when enable-multibyte-characters
 ;  (set-language-environment "Korean")
   
@@ -126,6 +96,18 @@
 ;(set-fontset-font "fontset-default" '(#x1100 . #xffdc)  '("AppleGothic" . "unicode-bmp")) ;;; 유니코드 한글영역...Malgun Gothic에다가 원하는폰트를 적는다
 ;(set-fontset-font "fontset-default" '(#xe0bc . #xf66e)  '("AppleGothic" . "unicode-bmp")) ;;;유니코드 사용자 영역
 
+
+;;; 유용한 플러그인을 사용하자
+
+;; setting library load path
+(add-to-list 'load-path "~/.emacs.d/")
+
+;;; magit mode
+(require 'magit)
+
+;; Control-tab으로 버퍼 이동하기
+(global-set-key (kbd "<C-tab>") 'bury-buffer)
+
 ;; color theme 설정
 (add-to-list 'load-path "~/.emacs.d/utils/color-theme-6.6.0/")
 ;(require 'color-theme)
@@ -133,16 +115,14 @@
 ;(color-theme-blue-sea)
 
 ;; twitter mode
-;(require 'auto-install)
-;(setq auto-install-directory "~/.emacs.d/auto-install/")
 (autoload 'twitter-get-friends-timeline "twitter" nil t)
 (autoload 'twitter-status-edit "twitter" nil t)
 (global-set-key "\C-xt" 'twitter-get-friends-timeline)
 (add-hook 'twitter-status-edit-mode-hook 'longlines-mode)
 
-(require 'yasnippet-bundle)
-;;short for eshell
-(global-set-key (kbd "M-0") 'eshell)
+;; yasnippet
+;(require 'yasnippet-bundle)
+
 ;setting for MAC
 (setq mac-option-modifier 'hyper)
 (setq mac-command-modifier 'meta)
