@@ -110,9 +110,9 @@
 (global-set-key (kbd "<C-tab>") 'bury-buffer)
 
 ;; color theme ¼³Á¤
-(add-to-list 'load-path "~/.emacs.d/utils/color-theme-6.6.0/")
-;(require 'color-theme)
-;(color-theme-initialize)
+(add-to-list 'load-path "~/emacs/packages/color-theme-6.6.0/")
+(require 'color-theme)
+(color-theme-initialize)
 ;(color-theme-blue-sea)
 
 ;; twitter mode
