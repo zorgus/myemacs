@@ -122,7 +122,7 @@
 (add-hook 'twitter-status-edit-mode-hook 'longlines-mode)
 
 ;; yasnippet
-;(require 'yasnippet-bundle)
+(require 'yasnippet-bundle)
 
 ;setting for MAC
 (setq mac-option-modifier 'hyper)
