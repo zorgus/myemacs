@@ -20,6 +20,7 @@
 ;environment setting
 (setenv "PATH" (concat "/opt/android-toolchain/arm-eabi-4.2.1/bin:" (getenv "PATH")))
 (setenv "PATH" (concat "/opt/local/bin:" (getenv "PATH")))
+(setenv "PATH" (concat "~/emacs/bin:" (getenv "PATH")))
 (setenv "CROSS_COMPILE" "arm-eabi-")
 (setenv "ARCH" "arm")
 
