@@ -4,6 +4,7 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(current-language-environment "Korean")
+ '(magit-git-executable "/opt/local/bin/git")
 )
 (custom-set-faces
   ;; custom-set-faces was added by Custom.

@@ -100,10 +100,11 @@
 ;;; 유용한 플러그인을 사용하자
 
 ;; setting library load path
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/emacs/packages/")
 
 ;;; magit mode
 (require 'magit)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 ;; Control-tab으로 버퍼 이동하기
 (global-set-key (kbd "<C-tab>") 'bury-buffer)
