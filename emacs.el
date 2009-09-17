@@ -126,6 +126,9 @@
 ;; yasnippet
 (require 'yasnippet-bundle)
 
+;; xcscope
+(require 'xcscope)
+
 ;setting for MAC
 (setq mac-option-modifier 'hyper)
 (setq mac-command-modifier 'meta)
