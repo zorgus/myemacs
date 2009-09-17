@@ -1,4 +1,5 @@
-(color-theme-comidia)
+(color-theme-lawrence)
+;(color-theme-comidia)
 (setq dired-recursive-deletes 'top)	;; dired - recursive delete directory
 (setenv "PAGER" "cat")
 (setq inhibit-splash-screen t)		;; disable splash screen
