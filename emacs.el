@@ -54,6 +54,7 @@
 (which-function-mode 1)	   ; 함수 표시
 
 (tool-bar-mode -1)	   ; 툴바 안쓰니까 제거
+(menu-bar-mode -1)	   ; 메뉴바도 제거
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1)) ; 스크롤바 거의 안쓴다.
 
