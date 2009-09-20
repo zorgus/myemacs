@@ -1,0 +1,5 @@
+* Linux
+* Android
+* Tools
+* Emacs
+* Etc
