@@ -9,10 +9,7 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(org-agenda-files (list "~/doc/todo.org"))
- '(ecb-options-version "2.32")
- '(ecb-source-path (quote (("/home/munyoung/sources/adam-sys/LINUX/kernel" "kernel") ("/home/munyoung/sources/adam-sys/LINUX/android" "android"))))
- '(standard-indent 8))
+ '(org-agenda-files (list "~/doc/todo.org")))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
