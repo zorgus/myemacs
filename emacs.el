@@ -66,6 +66,10 @@
 ;disable auto save
 (setq auto-save-default nil)
 
+; tab, indent
+(setq-default tab-width 4)
+(setq tab-stop-list '(4 8 12 16))
+
 ;;short for eshell
 (global-set-key (kbd "M-0") 'eshell)
 
