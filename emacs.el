@@ -73,6 +73,9 @@
 (setq indent-tabs-mode nil) ;; no tab
 ))
 
+;; compilation window는 항상 10 height크기로 뜨도록
+(setq compilation-window-height 10)
+
 ;;short for eshell
 (global-set-key (kbd "M-0") 'eshell)
 
