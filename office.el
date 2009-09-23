@@ -1,4 +1,4 @@
-(color-theme-lawrence)
+(color-theme-tty-dark)
 ;(color-theme-comidia)
 (setq dired-recursive-deletes 'top)	;; dired - recursive delete directory
 (setenv "PAGER" "cat")
@@ -16,4 +16,5 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(default ((t (:stipple nil :background "black" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :family "default"))))
+ '(magit-item-highlight ((((class color) (background dark)) (:background "dim gray" :foreground "black"))))
  '(magit-log-head-label ((((class color) (background dark)) (:background "blue")))))
