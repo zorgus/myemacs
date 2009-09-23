@@ -66,9 +66,18 @@
 ;disable auto save
 (setq auto-save-default nil)
 
-; tab, indent
+;; tab, indent
 (setq-default tab-width 4)
 (setq tab-stop-list '(4 8 12 16))
+(setq-default indent-tabs-mode nil)
+; C mode tab
+(add-hook 'c-mode-hook'
+(lambda () 
+(c-set-style "bsd")
+(setq default-tab-width 4)
+(setq c-basic-offset 4) ;; indent use only 2 blank
+(setq indent-tabs-mode nil) ;; no tab
+))
 
 ;;short for eshell
 (global-set-key (kbd "M-0") 'eshell)
