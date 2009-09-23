@@ -40,6 +40,8 @@
 (setq scroll-step 1)                    ; 윈도스런 스크롤을 위해서..
 (setq scroll-conservatively 4096)
 
+(setq dired-recursive-deletes 'top)	;; dired - recursive delete directory
+(setq inhibit-splash-screen t)		;; disable splash screen
                                         
 (delete-selection-mode 1)		; 윈도우처럼, 선택된 regeion 을 DEL 로 지우거나, 다른 글자를 타이핑 할때 즉시 지운다.
 

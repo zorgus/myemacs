@@ -1,8 +1,6 @@
 (color-theme-tty-dark)
 ;(color-theme-comidia)
-(setq dired-recursive-deletes 'top)	;; dired - recursive delete directory
 (setenv "PAGER" "cat")
-(setq inhibit-splash-screen t)		;; disable splash screen
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
