@@ -1,5 +1,8 @@
 * Linux
 * Android
 * Tools
+** GIT
+*** GIT subproject
+http://git.rsbx.net/Notes/Git_Subprojects.txt
 * Emacs
 * Etc
