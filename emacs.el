@@ -17,14 +17,6 @@
 (defconst officep (not homep)"사무실의 pc 라면 참")
 (defconst extra-packages "~/.emacs.d" "내가 추가로 설치한 el 패키지들의 위치")
 
-;environment setting
-(setenv "PATH" (concat "/opt/android-toolchain/arm-eabi-4.2.1/bin:" (getenv "PATH")))
-(setenv "PATH" (concat "/opt/local/bin:" (getenv "PATH")))
-(setenv "PATH" (concat "~/emacs/bin:" (getenv "PATH")))
-(setenv "CROSS_COMPILE" "arm-eabi-")
-(setenv "ARCH" "arm")
-
-
 (global-font-lock-mode 1)               ; syntanx highlight
 (transient-mark-mode t)                 ; marking highlight
 (show-paren-mode t)                     ; 짝이 맞는 괄호 보여준다
