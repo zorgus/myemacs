@@ -10,6 +10,10 @@
 ;(color-theme-comidia)
 (setenv "PAGER" "cat")
 
+; function 키 맵핑
+(global-set-key [f5] 'compile)
+
+
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
