@@ -11,11 +11,11 @@
 
 ;;; 여러 환경에서 쓰기 위한 설정값들
 
-(defconst win32p  (eq system-type 'windows-nt) "윈도머신이면 참")
-(defconst unixp   (eq system-type (or 'gnu/linux 'berkeley-unix)) "FreeBSD 머신이면 참")
-(defconst homep   (string-match "MOONFIRE" system-name)"집의 pc 라면 참")
-(defconst officep (not homep)"사무실의 pc 라면 참")
-(defconst extra-packages "~/.emacs.d" "내가 추가로 설치한 el 패키지들의 위치")
+;(defconst win32p  (eq system-type 'windows-nt) "윈도머신이면 참")
+;(defconst unixp   (eq system-type (or 'gnu/linux 'berkeley-unix)) "FreeBSD 머신이면 참")
+;(defconst homep   (string-match "MOONFIRE" system-name)"집의 pc 라면 참")
+;(defconst officep (not homep)"사무실의 pc 라면 참")
+;(defconst extra-packages "~/.emacs.d" "내가 추가로 설치한 el 패키지들의 위치")
 
 (global-font-lock-mode 1)               ; syntanx highlight
 (transient-mark-mode t)                 ; marking highlight
@@ -24,7 +24,7 @@
     (global-hi-lock-mode 1)
   (hi-lock-mode 1))
 ;;(global-hl-line-mode 1)                 ; 현재줄을 빛내준다. 이거 좀 불편해서 뺐다.
-(setq ring-bell-function (lambda () nil)) ; bell 무시
+;(setq ring-bell-function (lambda () nil)) ; bell 무시
 
 (line-number-mode 1)                  ; mode line 에 라인수를 표시한다
 (column-number-mode 1) ; mode line 에 컬럼을 표시한다(기본이 아니더라)
@@ -39,7 +39,7 @@
 
 (setq-default truncate-lines t) ; 화면을 벗어나는 긴 줄처리 toggle-truncate-lines 참고
 
-;;(dynamic-completion-mode)               ; 음 이게 뭐드라? M-/ 던가 M-RET 던가
+(dynamic-completion-mode)               ; 음 이게 뭐드라? M-/ 던가 M-RET 던가
 
 ;; Set the text for titlebar and icons, %f=filename, %b=buffername
 (setq frame-title-format (list "GNU Emacs " emacs-version " - " '(buffer-file-name "%f" "%b")))
@@ -76,8 +76,14 @@
 ;; compilation window는 항상 10 height크기로 뜨도록
 (setq compilation-window-height 10)
 
-;;short for eshell
+;; for eshell
 (global-set-key (kbd "M-0") 'eshell)
+; 종료 시에 물어보지 말고 저장하고 종료
+(setq eshell-save-history-on-exit t)
+;(add-hook 'eshell-mode-hook
+;          '(lambda () (define-key eshell-mode-map "\t" 'pcomplete-list)))
+;(setq eshell-cmpl-cycle-completions nil)
+
 
 ;; 한글
 ;(when enable-multibyte-characters
