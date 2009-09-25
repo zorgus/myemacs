@@ -18,3 +18,8 @@
 
 ;; color-theme
 (color-theme-late-night)
+
+;; setting for MAC
+(setq mac-option-modifier 'hyper)
+(setq mac-command-modifier 'meta)
+

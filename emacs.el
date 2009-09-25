@@ -149,7 +149,3 @@
 (require 'xcscope)
 (setq cscope-do-not-update-database t)
 
-;setting for MAC
-(setq mac-option-modifier 'hyper)
-(setq mac-command-modifier 'meta)
-
