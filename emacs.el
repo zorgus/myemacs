@@ -76,7 +76,7 @@
 ;; compilation window는 항상 10 height크기로 뜨도록
 (setq compilation-window-height 10)
 
-;; for eshell
+;; eshell
 (global-set-key (kbd "M-0") 'eshell)
 ; 종료 시에 물어보지 말고 저장하고 종료
 (setq eshell-save-history-on-exit t)
@@ -84,6 +84,9 @@
 ;          '(lambda () (define-key eshell-mode-map "\t" 'pcomplete-list)))
 ;(setq eshell-cmpl-cycle-completions nil)
 
+;; org mode
+(setq org-log-done t)
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
 ;; 한글
 ;(when enable-multibyte-characters
