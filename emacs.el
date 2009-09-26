@@ -154,3 +154,8 @@
 (require 'xcscope)
 (setq cscope-do-not-update-database t)
 
+;; setnu-mode
+(load-library "setnu")
+(add-hook 'asm-mode-hook 'turn-on-setnu-mode)
+(add-hook 'c-mode-hook 'turn-on-setnu-mode)
+(add-hook 'text-mode-hook 'turn-on-setnu-mode)
