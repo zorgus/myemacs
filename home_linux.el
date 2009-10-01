@@ -21,3 +21,4 @@
 (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)  '("NanumGothicCoding" . "unicode-bmp")) ;;;유니코드 사용자 영역
 (setq x-super-keysym 'meta)
 
+(global-set-key (kbd "S-SPC") 'toggle-input-method)
