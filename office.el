@@ -5,7 +5,7 @@
 (setenv "CROSS_COMPILE" "arm-eabi-")
 (setenv "ARCH" "arm")
 
-(color-theme-billw)
+(color-theme-arjen)
 ;(color-theme-lawrence)
 ;(color-theme-comidia)
 (setenv "PAGER" "cat")
