@@ -92,6 +92,13 @@
 (when window-system
 (modify-frame-parameters nil '((alpha . 90))))
 
+;; windmove
+(require 'windmove)
+(global-set-key (kbd "M-H") 'windmove-left)
+(global-set-key (kbd "M-J") 'windmove-down)
+(global-set-key (kbd "M-K") 'windmove-up)
+(global-set-key (kbd "M-L") 'windmove-right)
+
 
 ;; ÇÑ±Û
 ;(when enable-multibyte-characters
