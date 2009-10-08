@@ -166,3 +166,7 @@
 ;(add-hook 'asm-mode-hook 'turn-on-setnu-mode)
 ;(add-hook 'c-mode-hook 'turn-on-setnu-mode)
 ;(add-hook 'text-mode-hook 'turn-on-setnu-mode)
+
+;; escreen
+(require 'escreen)
+(global-set-key (kbd "C-\\") 'escreen-prefix)
