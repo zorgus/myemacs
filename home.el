@@ -11,13 +11,13 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(default ((t (:stipple nil :background "black" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "apple" :family "Andale_Mono")))))
+ '(default ((t (:stipple nil :background "black" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "apple" :family "Courier")))))
 
 ;; android mode
 (load-file "/Developer/Android/android-sdk-mac_x86-1.5_r1/tools/lib/android.el")
 
 ;; color-theme
-(color-theme-late-night)
+;(color-theme-late-night)
 
 ;; setting for MAC
 (setq mac-option-modifier 'hyper)
