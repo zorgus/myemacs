@@ -63,7 +63,7 @@
 ;; tab, indent
 (setq-default tab-width 4)
 (setq tab-stop-list '(4 8 12 16))
-(setq-default indent-tabs-mode nil)
+(setq-default indent-tabs-mode t)
 ; C mode tab
 (add-hook 'c-mode-hook'
 (lambda () 
@@ -99,6 +99,8 @@
 (global-set-key (kbd "M-K") 'windmove-up)
 (global-set-key (kbd "M-L") 'windmove-right)
 
+;; 파일읽을때 느린 문제
+(setq vc-handled-backends nil)
 
 ;; 한글
 ;(when enable-multibyte-characters
