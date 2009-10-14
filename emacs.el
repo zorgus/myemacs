@@ -179,3 +179,7 @@
 (global-ede-mode 1)
 (semantic-load-enable-code-helpers)
 (global-srecode-minor-mode 1)
+
+;; ecb
+(add-to-list 'load-path "~/emacs/packages/ecb-2.32/")
+(require 'ecb)
