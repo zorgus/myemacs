@@ -172,3 +172,10 @@
 ;; escreen
 (require 'escreen)
 (global-set-key (kbd "C-\\") 'escreen-prefix)
+
+;; cedet
+(add-to-list 'load-path "~/emacs/packages/cedet-1.0pre6/common/")
+(require 'cedet)
+(global-ede-mode 1)
+(semantic-load-enable-code-helpers)
+(global-srecode-minor-mode 1)
