@@ -70,7 +70,7 @@
 (c-set-style "bsd")
 (setq default-tab-width 4)
 (setq c-basic-offset 4) ;; indent use only 2 blank
-(setq indent-tabs-mode nil) ;; no tab
+(setq indent-tabs-mode t) ;; no tab
 ))
 
 ;; compilation window는 항상 10 height크기로 뜨도록
