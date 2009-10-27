@@ -10,8 +10,15 @@
 ;(color-theme-comidia)
 (setenv "PAGER" "cat")
 
+; ecb enable
+;(ecb-activate)
+
 ; function 키 맵핑
+(global-set-key [f2] 'ecb-activate)
+(global-set-key [f3] 'new-frame)
+(global-set-key [f4] 'other-frame)
 (global-set-key [f5] 'compile)
+(global-set-key [f8] 'eshell)
 
 
 (custom-set-variables
