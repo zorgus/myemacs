@@ -165,7 +165,7 @@
 (add-hook 'twitter-status-edit-mode-hook 'longlines-mode)
 
 ;; yasnippet
-(require 'yasnippet-bundle)
+;(require 'yasnippet-bundle)
 
 ;; xcscope
 (require 'xcscope)
