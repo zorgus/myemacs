@@ -181,5 +181,5 @@
 (global-srecode-minor-mode 1)
 
 ;; ecb
-(add-to-list 'load-path "~/emacs/packages/ecb-2.32/")
+(add-to-list 'load-path "~/emacs/packages/ecb-2.40/")
 (require 'ecb)
