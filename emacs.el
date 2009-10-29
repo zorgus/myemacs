@@ -102,6 +102,10 @@
 ;; 파일읽을때 느린 문제
 (setq vc-handled-backends nil)
 
+;; shortcut for M-x
+(global-set-key "\C-x\C-m" 'execute-extended-command)
+(global-set-key "\C-c\C-m" 'execute-extended-command)
+
 ;; 한글
 ;(when enable-multibyte-characters
 ;  (set-language-environment "Korean")
