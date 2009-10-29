@@ -106,6 +106,10 @@
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
 
+;; linum-mode (emacs 23 only)
+;; (global-linum-mode 1)
+;; (setq linum-format "%5d ")
+
 ;; ÇÑ±Û
 ;(when enable-multibyte-characters
 ;  (set-language-environment "Korean")
