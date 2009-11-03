@@ -182,7 +182,7 @@
 (global-set-key (kbd "C-\\") 'escreen-prefix)
 
 ;; cedet
-(add-to-list 'load-path "~/emacs/packages/cedet-1.0pre6/common/")
+(add-to-list 'load-path "~/emacs/packages/cedet/common/")
 (require 'cedet)
 (global-ede-mode 1)
 (semantic-load-enable-code-helpers)
