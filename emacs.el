@@ -37,7 +37,7 @@
                                         
 (delete-selection-mode 1)		; 윈도우처럼, 선택된 regeion 을 DEL 로 지우거나, 다른 글자를 타이핑 할때 즉시 지운다.
 
-(setq-default truncate-lines t) ; 화면을 벗어나는 긴 줄처리 toggle-truncate-lines 참고
+;(setq-default truncate-lines t) ; 화면을 벗어나는 긴 줄처리 toggle-truncate-lines 참고
 
 (dynamic-completion-mode)               ; 음 이게 뭐드라? M-/ 던가 M-RET 던가
 
