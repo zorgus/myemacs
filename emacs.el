@@ -101,6 +101,12 @@
 ;; (setq linum-format "%5d ")
 
 ;; Hangul
+(when enable-multibyte-characters
+  (set-language-environment "Korean"))
+
+;(set-fontset-font "fontset-default" '(#x1100 . #xffdc)  '("AppleGothic" . "unicode-bmp"))
+;(set-fontset-font "fontset-default" '(#xe0bc . #xf66e)  '("AppleGothic" . "unicode-bmp"))
+
 ;(when enable-multibyte-characters
 ;  (set-language-environment "Korean")
   
@@ -125,9 +131,6 @@
 ;                 (nth 1 (current-input-mode))
 ;                  0))
 
-
-;(set-fontset-font "fontset-default" '(#x1100 . #xffdc)  '("AppleGothic" . "unicode-bmp"))
-;(set-fontset-font "fontset-default" '(#xe0bc . #xf66e)  '("AppleGothic" . "unicode-bmp"))
 
 ;;; package settings
 ;; setting library load path
