@@ -166,8 +166,8 @@
 ;(add-hook 'text-mode-hook 'turn-on-setnu-mode)
 
 ;; escreen
-(require 'escreen)
-(global-set-key (kbd "C-\\") 'escreen-prefix)
+;; (require 'escreen)
+;; (global-set-key (kbd "C-\\") 'escreen-prefix)
 
 ;; cedet
 (add-to-list 'load-path "~/emacs/packages/cedet/common/")
@@ -177,5 +177,5 @@
 (global-srecode-minor-mode 1)
 
 ;; ecb
-(add-to-list 'load-path "~/emacs/packages/ecb-2.40/")
-(require 'ecb)
+;; (add-to-list 'load-path "~/emacs/packages/ecb-2.40/")
+;; (require 'ecb)
