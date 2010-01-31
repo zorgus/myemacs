@@ -37,8 +37,8 @@
 
 (which-function-mode 1)
 
-(tool-bar-mode -1)
-(menu-bar-mode -1)
+;; (tool-bar-mode -1)
+;; (menu-bar-mode -1)
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
@@ -79,8 +79,8 @@
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
 ;; transparency frame
-(when window-system
-(modify-frame-parameters nil '((alpha . 90))))
+;; (when window-system
+;; (modify-frame-parameters nil '((alpha . 90))))
 
 ;; windmove
 (require 'windmove)
@@ -150,13 +150,13 @@
 ;(color-theme-blue-sea)
 
 ;; twitter mode
-(autoload 'twitter-get-friends-timeline "twitter" nil t)
-(autoload 'twitter-status-edit "twitter" nil t)
-(global-set-key "\C-xt" 'twitter-get-friends-timeline)
-(add-hook 'twitter-status-edit-mode-hook 'longlines-mode)
+;; (autoload 'twitter-get-friends-timeline "twitter" nil t)
+;; (autoload 'twitter-status-edit "twitter" nil t)
+;; (global-set-key "\C-xt" 'twitter-get-friends-timeline)
+;; (add-hook 'twitter-status-edit-mode-hook 'longlines-mode)
 
 ;; yasnippet
-;(require 'yasnippet-bundle)
+(require 'yasnippet-bundle)
 
 ;; xcscope
 (require 'xcscope)
@@ -173,11 +173,11 @@
 ;; (global-set-key (kbd "C-\\") 'escreen-prefix)
 
 ;; cedet
-(add-to-list 'load-path "~/emacs/packages/cedet/common/")
-(require 'cedet)
-(global-ede-mode 1)
-(semantic-load-enable-code-helpers)
-(global-srecode-minor-mode 1)
+;; (add-to-list 'load-path "~/emacs/packages/cedet/common/")
+;; (require 'cedet)
+;; (global-ede-mode 1)
+;; (semantic-load-enable-code-helpers)
+;; (global-srecode-minor-mode 1)
 
 ;; ecb
 ;; (add-to-list 'load-path "~/emacs/packages/ecb-2.40/")
