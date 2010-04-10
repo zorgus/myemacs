@@ -182,3 +182,7 @@
 ;; ecb
 ;; (add-to-list 'load-path "~/emacs/packages/ecb-2.40/")
 ;; (require 'ecb)
+
+;; zenburn
+(require 'zenburn)
+(zenburn)
