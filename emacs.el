@@ -78,6 +78,10 @@
 ;; (setq org-log-done t)
 ;; (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
+;; transparency when new frame
+(setq transparency-level 80)
+(set-frame-parameter nil 'alpha transparency-level)
+(add-hook 'after-make-frame-functions (lambda (selected-frame) (set-frame-parameter selected-frame 'alpha transparency-level)))
 ;; transparency frame
 (when window-system
 (modify-frame-parameters nil '((alpha . 80))))
@@ -90,7 +94,7 @@
 ;; (global-set-key (kbd "M-L") 'windmove-right)
 
 ;; ;; fix problem that open file slowly
-;; (setq vc-handled-backends nil)
+(setq vc-handled-backends nil)
 
 ;; ;; shortcut for M-x
 ;; (global-set-key "\C-x\C-m" 'execute-extended-command)
@@ -101,26 +105,26 @@
 ;; (setq linum-format "%5d ")
 
 ;; Hangul
-(when enable-multibyte-characters
-  (set-language-environment "Korean"))
+;; (when enable-multibyte-characters
+;;   (set-language-environment "Korean"))
 
 ;(set-fontset-font "fontset-default" '(#x1100 . #xffdc)  '("AppleGothic" . "unicode-bmp"))
 ;(set-fontset-font "fontset-default" '(#xe0bc . #xf66e)  '("AppleGothic" . "unicode-bmp"))
 
-;(when enable-multibyte-characters
-;  (set-language-environment "Korean")
-  
-;  (setq-default file-name-coding-system 'utf-8)
-  ;; (setq default-korean-keyboard "3")
-  ;; (setq input-method-verbose-flag nil
-  ;;       input-method-highlight-flag nil)
-;  (prefer-coding-system 'utf-8)
-;  (set-default-coding-systems 'utf-8)
-;  (unless window-system
-;    (set-terminal-coding-system 'utf-8)
-;    (when (boundp 'encoded-kbd-mode-map)
-;      (define-key encoded-kbd-mode-map [27] nil)))
- 
+(when enable-multibyte-characters
+ (set-language-environment "Korean")
+ (setq-default file-name-coding-system 'utf-8)
+ (custom-set-variables '(default-input-method "korean-hangul"))
+  ;; (setq default-korean-keyboard "1")
+  (setq input-method-verbose-flag nil
+        input-method-highlight-flag nil)
+ (prefer-coding-system 'utf-8)
+ (set-default-coding-systems 'utf-8)
+ (unless window-system
+   (set-terminal-coding-system 'utf-8)
+   (when (boundp 'encoded-kbd-mode-map)
+     (define-key encoded-kbd-mode-map [27] nil)))
+) 
 ;  (set-selection-coding-system 'compound-text-with-extensions)
  
   ;; Hangul Mail setting
