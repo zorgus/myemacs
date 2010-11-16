@@ -191,6 +191,12 @@
 (require 'zenburn)
 (zenburn)
 
+;; etags-select
+(require 'etags-select)
+(global-set-key "\M-?" 'etags-select-find-tag-at-point)
+(global-set-key "\M-." 'etags-select-find-tag)
+
+
 (defun remove-dos-eol ()
   "Removes the disturbing '^M' showing up in files containing mixed UNIX and DOS line endings."
   (interactive)
