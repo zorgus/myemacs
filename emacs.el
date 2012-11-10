@@ -37,8 +37,9 @@
 
 ;; (which-function-mode 1)
 
-(tool-bar-mode -1)
-(menu-bar-mode -1)
+(tool-bar-mode nil)
+(menu-bar-mode nil)
+(scroll-bar-mode nil)
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
@@ -86,12 +87,12 @@
 (when window-system
 (modify-frame-parameters nil '((alpha . 80))))
 
-;; ;; windmove
+;; windmove
 ;; (require 'windmove)
-;; (global-set-key (kbd "M-H") 'windmove-left)
-;; (global-set-key (kbd "M-J") 'windmove-down)
-;; (global-set-key (kbd "M-K") 'windmove-up)
-;; (global-set-key (kbd "M-L") 'windmove-right)
+;; (global-set-key (kbd "<M-left>") 'windmove-left)
+;; (global-set-key (kbd "<M-right>") 'windmove-down)
+;; (global-set-key (kbd "<M-up>") 'windmove-up)
+;; (global-set-key (kbd "<M-down>") 'windmove-right)
 
 ;; ;; fix problem that open file slowly
 (setq vc-handled-backends nil)
@@ -138,7 +139,7 @@
 
 ;;; package settings
 ;; setting library load path
-(add-to-list 'load-path "~/emacs/packages/")
+(add-to-list 'load-path "~/.emacs.d/myemacs/packages/")
 
 ;;; magit mode
 (require 'magit)
@@ -148,10 +149,9 @@
 ;; (global-set-key (kbd "<C-tab>") 'bury-buffer)
 
 ;; color theme
-(add-to-list 'load-path "~/emacs/packages/color-theme-6.6.0/")
+(add-to-list 'load-path "~/.emacs.d/myemacs/packages/color-theme-6.6.0/")
 (require 'color-theme)
 (color-theme-initialize)
-;(color-theme-blue-sea)
 
 ;; twitter mode
 ;; (autoload 'twitter-get-friends-timeline "twitter" nil t)
