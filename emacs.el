@@ -37,9 +37,9 @@
 
 ;; (which-function-mode 1)
 
-(tool-bar-mode nil)
-(menu-bar-mode nil)
-(scroll-bar-mode nil)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
@@ -80,12 +80,12 @@
 ;; (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
 ;; transparency when new frame
-(setq transparency-level 80)
+(setq transparency-level 95)
 (set-frame-parameter nil 'alpha transparency-level)
 (add-hook 'after-make-frame-functions (lambda (selected-frame) (set-frame-parameter selected-frame 'alpha transparency-level)))
 ;; transparency frame
 (when window-system
-(modify-frame-parameters nil '((alpha . 80))))
+(modify-frame-parameters nil '((alpha . 95))))
 
 ;; windmove
 ;; (require 'windmove)
@@ -149,9 +149,15 @@
 ;; (global-set-key (kbd "<C-tab>") 'bury-buffer)
 
 ;; color theme
-(add-to-list 'load-path "~/.emacs.d/myemacs/packages/color-theme-6.6.0/")
-(require 'color-theme)
-(color-theme-initialize)
+(when (= emacs-major-version 23)
+  (add-to-list 'load-path "~/.emacs.d/myemacs/packages/color-theme-6.6.0/")
+  (require 'color-theme)
+  (color-theme-initialize)
+  (color-theme-zenburn))
+(when (= emacs-major-version 24)
+	(load-theme 'manoj-dark))
+;; (load-theme 'manoj-dark)
+
 
 ;; twitter mode
 ;; (autoload 'twitter-get-friends-timeline "twitter" nil t)
@@ -188,8 +194,8 @@
 ;; (require 'ecb)
 
 ;; zenburn
-(require 'zenburn)
-(zenburn)
+;; (require 'zenburn)
+;; (zenburn)
 
 ;; etags-select
 (require 'etags-select)
