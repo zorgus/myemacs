@@ -80,12 +80,12 @@
 ;; (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 
 ;; transparency when new frame
-(setq transparency-level 95)
-(set-frame-parameter nil 'alpha transparency-level)
-(add-hook 'after-make-frame-functions (lambda (selected-frame) (set-frame-parameter selected-frame 'alpha transparency-level)))
-;; transparency frame
-(when window-system
-(modify-frame-parameters nil '((alpha . 95))))
+;; (setq transparency-level 95)
+;; (set-frame-parameter nil 'alpha transparency-level)
+;; (add-hook 'after-make-frame-functions (lambda (selected-frame) (set-frame-parameter selected-frame 'alpha transparency-level)))
+;; ;; transparency frame
+;; (when window-system
+;; (modify-frame-parameters nil '((alpha . 95))))
 
 ;; windmove
 ;; (require 'windmove)
