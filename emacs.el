@@ -153,7 +153,7 @@
   (add-to-list 'load-path "~/.emacs.d/myemacs/packages/color-theme-6.6.0/")
   (require 'color-theme)
   (color-theme-initialize)
-  (color-theme-zenburn))
+  (color-theme-xemacs))
 (when (= emacs-major-version 24)
 	(load-theme 'manoj-dark))
 ;; (load-theme 'manoj-dark)
