@@ -149,6 +149,7 @@
 ;; (global-set-key (kbd "<C-tab>") 'bury-buffer)
 
 ;; color theme
+(when window-system
 (when (= emacs-major-version 23)
   (add-to-list 'load-path "~/.emacs.d/myemacs/packages/color-theme-6.6.0/")
   (require 'color-theme)
@@ -156,6 +157,7 @@
   (color-theme-xemacs))
 (when (= emacs-major-version 24)
 	(load-theme 'manoj-dark))
+)
 ;; (load-theme 'manoj-dark)
 
 
