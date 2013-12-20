@@ -8,9 +8,9 @@
 (setq inhibit-splash-screen t)		;; disable splash screen
                                         
 (menu-bar-mode -1)
+;(tool-bar-mode -1)
 
 (when window-system
-(tool-bar-mode -1)
 (scroll-bar-mode -1)
 (set-fontset-font "fontset-default" '(#x1100 . #xffdc)  '("NanumGothic" . "unicode-bmp")) ;;; 유니코드 한글영역
 (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)  '("NanumGothic" . "unicode-bmp")) ;;;유니코드 사용자 영역
@@ -21,7 +21,7 @@
   (color-theme-initialize)
   (color-theme-xemacs))
 (when (= emacs-major-version 24)
-	(load-theme 'manoj-dark))
+	(load-theme 'deeper-blue))
 )
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
