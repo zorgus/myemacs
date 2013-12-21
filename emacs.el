@@ -6,12 +6,25 @@
 ;; description: common settings for emacs
 
 (setq inhibit-splash-screen t)		;; disable splash screen
-                                        
-(menu-bar-mode -1)
-;(tool-bar-mode -1)
+
+;;; package settings
+;; setting library load path
+(add-to-list 'load-path "~/.emacs.d/myemacs/packages/")
+(add-to-list 'load-path "~/.emacs.d/myemacs/auto-install/")
+
+(unless window-system                                        
+  (menu-bar-mode -1)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+)
+
+;; scroll one line at a time (less "jumpy" than defaults)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 3))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq scroll-step 1) ;; keyboard scroll one line at a time
 
 (when window-system
-(scroll-bar-mode -1)
 (set-fontset-font "fontset-default" '(#x1100 . #xffdc)  '("NanumGothic" . "unicode-bmp")) ;;; 유니코드 한글영역
 (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)  '("NanumGothic" . "unicode-bmp")) ;;;유니코드 사용자 영역
 ;; color theme
@@ -25,6 +38,11 @@
 )
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
+;; (load-file "~/.emacs.d/myemacs/packages/cedet-1.1/common/cedet.el")
+;; (global-ede-mode 1)                      ; Enable the Project management system
+;; (semantic-load-enable-code-helpers)      ; Enable prototype help and smart completion 
+;; (global-srecode-minor-mode 1)            ; Enable template insertion menu
 
 ;; iswitch mode
 (iswitchb-mode t)
@@ -82,10 +100,6 @@
      (define-key encoded-kbd-mode-map [27] nil)))
 ) 
 
-;;; package settings
-;; setting library load path
-(add-to-list 'load-path "~/.emacs.d/myemacs/packages/")
-
 ;;; magit mode
 (require 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
@@ -107,3 +121,14 @@
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
 
+(semantic-mode)
+
+(require 'sr-speedbar)
+(when window-system
+  (setq sr-speedbar-right-side nil)
+  (sr-speedbar-open)
+)
+
+(require 'auto-install)
+(setq auto-install-directory "~/.emacs.d/myemacs/auto-install/")
+;; (auto-install-update-emacswiki-package-name t)
