@@ -46,6 +46,7 @@
 
 ;; iswitch mode
 (iswitchb-mode t)
+(which-function-mode)
 
 ;disable backup
 (setq backup-inhibited t)
@@ -121,7 +122,7 @@
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
 
-(semantic-mode)
+;; (semantic-mode)
 
 (require 'sr-speedbar)
 (when window-system
@@ -132,3 +133,9 @@
 (require 'auto-install)
 (setq auto-install-directory "~/.emacs.d/myemacs/auto-install/")
 ;; (auto-install-update-emacswiki-package-name t)
+
+(require 'org-install)
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(setq org-log-done t)
