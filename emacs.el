@@ -12,11 +12,9 @@
 (add-to-list 'load-path "~/.emacs.d/myemacs/packages/")
 (add-to-list 'load-path "~/.emacs.d/myemacs/auto-install/")
 
-(unless window-system                                        
-  (menu-bar-mode -1)
-  (tool-bar-mode -1)
-  (scroll-bar-mode -1)
-)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
 
 ;; scroll one line at a time (less "jumpy" than defaults)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 3))) ;; one line at a time
@@ -124,11 +122,9 @@
 
 ;; (semantic-mode)
 
+
 (require 'sr-speedbar)
-(when window-system
-  (setq sr-speedbar-right-side nil)
-  (sr-speedbar-open)
-)
+(setq sr-speedbar-right-side nil)
 
 (require 'auto-install)
 (setq auto-install-directory "~/.emacs.d/myemacs/auto-install/")
