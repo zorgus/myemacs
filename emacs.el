@@ -13,8 +13,10 @@
 (add-to-list 'load-path "~/.emacs.d/myemacs/auto-install/")
 
 (menu-bar-mode -1)
+(when window-system
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+)
 
 ;; scroll one line at a time (less "jumpy" than defaults)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 3))) ;; one line at a time
@@ -135,3 +137,11 @@
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
+
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (add-to-list
+   'package-archives
+   '("melpa" . "http://melpa.org/packages/")
+   t)
+  (package-initialize))
