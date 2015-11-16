@@ -36,6 +36,8 @@
 (when (= emacs-major-version 24)
 	(load-theme 'deeper-blue))
 )
+(unless window-system
+  (set-face-foreground 'minibuffer-prompt "white"))
 
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
