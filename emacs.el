@@ -68,45 +68,23 @@
 (setq indent-tabs-mode t) ;; no tab
 ))
 
-(defun djcb-opacity-modify (&optional dec)
-  "modify the transparency of the emacs frame; if DEC is t,
-    decrease the transparency, otherwise increase it in 10%-steps"
-  (let* ((alpha-or-nil (frame-parameter nil 'alpha)) ; nil before setting
-          (oldalpha (if alpha-or-nil alpha-or-nil 100))
-          (newalpha (if dec (- oldalpha 10) (+ oldalpha 10))))
-    (when (and (>= newalpha frame-alpha-lower-limit) (<= newalpha 100))
-      (modify-frame-parameters nil (list (cons 'alpha newalpha))))))
-
- ;; C-8 will increase opacity (== decrease transparency)
- ;; C-9 will decrease opacity (== increase transparency
- ;; C-0 will returns the state to normal
-(global-set-key (kbd "C-8") '(lambda()(interactive)(djcb-opacity-modify)))
-(global-set-key (kbd "C-9") '(lambda()(interactive)(djcb-opacity-modify t)))
-(global-set-key (kbd "C-0") '(lambda()(interactive)
-                               (modify-frame-parameters nil `((alpha . 100)))))
-
-;; ;; fix problem that open file slowly
-(setq vc-handled-backends nil)
-
 (when enable-multibyte-characters
- (set-language-environment "Korean")
- (setq-default file-name-coding-system 'utf-8)
- (custom-set-variables '(default-input-method "korean-hangul"))
+  (set-language-environment "Korean")
+  (setq-default file-name-coding-system 'utf-8)
+  (custom-set-variables '(default-input-method "korean-hangul"))
   ;; (setq default-korean-keyboard "1")
   (setq input-method-verbose-flag nil
-        input-method-highlight-flag nil)
- (prefer-coding-system 'utf-8)
- (set-default-coding-systems 'utf-8)
- (unless window-system
-   (set-terminal-coding-system 'utf-8)
-   (when (boundp 'encoded-kbd-mode-map)
-     (define-key encoded-kbd-mode-map [27] nil)))
-) 
+		input-method-highlight-flag nil)
+  (prefer-coding-system 'utf-8)
+  (set-default-coding-systems 'utf-8)
+  (unless window-system
+	(set-terminal-coding-system 'utf-8)
+	(when (boundp 'encoded-kbd-mode-map)
+	  (define-key encoded-kbd-mode-map [27] nil)))
+  ) 
 
-;;; magit mode
-(require 'magit)
-(global-set-key (kbd "C-x g") 'magit-status)
-
+;; fix problem that open file slowly
+(setq vc-handled-backends nil)
 
 ;; xcscope
 (require 'xcscope)
@@ -117,34 +95,58 @@
 (global-set-key "\M-?" 'etags-select-find-tag-at-point)
 (global-set-key "\M-." 'etags-select-find-tag)
 
-
 (defun remove-dos-eol ()
   "Removes the disturbing '^M' showing up in files containing mixed UNIX and DOS line endings."
   (interactive)
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
 
-;; (semantic-mode)
+(defun myplugin ()
+  (interactive)
+  (defun djcb-opacity-modify (&optional dec)
+	"modify the transparency of the emacs frame; if DEC is t,
+    decrease the transparency, otherwise increase it in 10%-steps"
+	(let* ((alpha-or-nil (frame-parameter nil 'alpha)) ; nil before setting
+		   (oldalpha (if alpha-or-nil alpha-or-nil 100))
+		   (newalpha (if dec (- oldalpha 10) (+ oldalpha 10))))
+	  (when (and (>= newalpha frame-alpha-lower-limit) (<= newalpha 100))
+		(modify-frame-parameters nil (list (cons 'alpha newalpha))))))
 
-(when window-system
-  (require 'sr-speedbar)
-  (setq sr-speedbar-right-side nil)
-  )
+  ;; C-8 will increase opacity (== decrease transparency)
+  ;; C-9 will decrease opacity (== increase transparency
+  ;; C-0 will returns the state to normal
+  (global-set-key (kbd "C-8") '(lambda()(interactive)(djcb-opacity-modify)))
+  (global-set-key (kbd "C-9") '(lambda()(interactive)(djcb-opacity-modify t)))
+  (global-set-key (kbd "C-0") '(lambda()(interactive)
+								 (modify-frame-parameters nil `((alpha . 100)))))
 
-(require 'auto-install)
-(setq auto-install-directory "~/.emacs.d/myemacs/auto-install/")
-;; (auto-install-update-emacswiki-package-name t)
+  ;; magit mode
+  (require 'magit)
+  (global-set-key (kbd "C-x g") 'magit-status)
 
-(require 'org-install)
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(setq org-log-done t)
 
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (add-to-list
-   'package-archives
-   '("melpa" . "http://melpa.org/packages/")
-   t)
-  (package-initialize))
+  ;; (semantic-mode)
+
+  (when window-system
+	(require 'sr-speedbar)
+	(setq sr-speedbar-right-side nil)
+	)
+
+  (require 'auto-install)
+  (setq auto-install-directory "~/.emacs.d/myemacs/auto-install/")
+  ;; (auto-install-update-emacswiki-package-name t)
+
+  (require 'org-install)
+  (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+  (define-key global-map "\C-cl" 'org-store-link)
+  (define-key global-map "\C-ca" 'org-agenda)
+  (setq org-log-done t)
+
+  (when (>= emacs-major-version 24)
+	(require 'package)
+	(add-to-list
+	 'package-archives
+	 '("melpa" . "http://melpa.org/packages/")
+	 t)
+	(package-initialize))
+)
