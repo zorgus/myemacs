@@ -126,9 +126,10 @@
 
 ;; (semantic-mode)
 
-
-(require 'sr-speedbar)
-(setq sr-speedbar-right-side nil)
+(when window-system
+  (require 'sr-speedbar)
+  (setq sr-speedbar-right-side nil)
+  )
 
 (require 'auto-install)
 (setq auto-install-directory "~/.emacs.d/myemacs/auto-install/")
