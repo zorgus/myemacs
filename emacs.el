@@ -89,6 +89,9 @@
 ;; xcscope
 (require 'xcscope)
 (setq cscope-do-not-update-database t)
+(global-set-key "\C-cc" 'cscope-find-global-definition)
+(global-set-key "\C-cd" 'cscope-find-this-symbol)
+(global-set-key "\C-cp" 'cscope-pop-mark)
 
 ;; etags-select
 (require 'etags-select)
