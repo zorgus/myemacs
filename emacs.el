@@ -104,6 +104,9 @@
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
 
+(require 'find-file-in-repository)
+(global-set-key "\C-xf" 'find-file-in-repository)
+
 (defun myplugin ()
   (interactive)
   (defun djcb-opacity-modify (&optional dec)
