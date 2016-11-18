@@ -56,15 +56,15 @@
 (setq auto-save-default nil)
 
 ;; tab, indent
-(setq-default tab-width 4)
-(setq tab-stop-list '(4 8 12 16))
+(setq-default tab-width 8)
+(setq tab-stop-list '(8 16 24 32))
 (setq-default indent-tabs-mode t)
 ; C mode tab
 (add-hook 'c-mode-hook'
 (lambda () 
 (c-set-style "bsd")
-(setq default-tab-width 4)
-(setq c-basic-offset 4) ;; indent use only 2 blank
+(setq default-tab-width 8)
+(setq c-basic-offset 8) ;; indent use only 2 blank
 (setq indent-tabs-mode t) ;; no tab
 ))
 
@@ -106,6 +106,14 @@
 
 (require 'find-file-in-repository)
 (global-set-key "\C-xf" 'find-file-in-repository)
+
+(defun copy-line (arg)
+  "Copy lines (as many as prefix argument) in the kill ring"
+  (interactive "p")
+  (kill-ring-save (line-beginning-position)
+                  (line-beginning-position (+ 1 arg)))
+  (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
+(global-set-key "\C-c\C-k" 'copy-line)
 
 (defun myplugin ()
   (interactive)
