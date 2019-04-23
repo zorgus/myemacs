@@ -9,6 +9,12 @@
     :ensure t)
   )
 
+(use-package ivy
+  :ensure t
+  :config
+  (ivy-mode t)
+  )
+
 (use-package autoinsert
   :ensure t
   :config
