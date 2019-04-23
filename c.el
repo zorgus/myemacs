@@ -36,7 +36,7 @@
 
   (use-package company-irony
     :ensure t
-    :hook ((prog-mode . company-mode))
+    :hook ((irony-mode . company-mode))
     :config
     (add-to-list (make-local-variable 'company-backends) '(company-irony company-irony-c-headers))
     )
