@@ -30,3 +30,5 @@
 (require 'config)
 (require 'packages)
 (require 'c)
+
+(require 'binding)
