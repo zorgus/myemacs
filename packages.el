@@ -9,11 +9,22 @@
     :ensure t)
   )
 
+(use-package popwin
+  :ensure t
+  :config
+  (popwin-mode 1)
+  )
+
 (use-package ivy
   :ensure t
   :config
   (ivy-mode t)
   )
+
+(use-package company
+  :config
+  (global-company-mode t)
+  (setq company-dabbrev-downcase nil))
 
 (use-package autoinsert
   :ensure t

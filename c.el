@@ -54,5 +54,29 @@
     )
   )
 
+(use-package flycheck
+  :ensure t
+  :hook ((c-mode-hook . flycheck-mode))
+  )
+
+(use-package rtags
+  :ensure t
+  :config
+  (rtags-enable-standard-keybindings)
+  (setq rtags-autostart-diagnostics t)
+  (rtags-diagnostics)
+  (setq rtags-completions-enabled t)
+  ;; (rtags-start-process-unless-running)
+  )
+
+(use-package cmake-ide
+  :ensure t
+  :config
+  (cmake-ide-setup)
+  (setq
+   cmake-ide-build-dir "build"
+   cmake-ide-cmake-opts "-DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON")
+  )
+
 (provide 'c)
 ;;; c.el ends here
