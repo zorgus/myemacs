@@ -1,0 +1,7 @@
+auto-save-list/
+bookmarks
+elpa/
+irony
+projectile*
+transient/
+init.el
