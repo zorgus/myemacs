@@ -67,6 +67,10 @@
   (rtags-diagnostics)
   (setq rtags-completions-enabled t)
   ;; (rtags-start-process-unless-running)
+  (use-package ivy-rtags
+    :ensure t
+    )
+  (setq rtags-display-result-backend 'ivy)
   )
 
 (use-package cmake-ide
